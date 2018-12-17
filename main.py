@@ -21,6 +21,7 @@ def pushChange():
     subprocess.call([GIT, "add", "."])
     subprocess.call([GIT, "status"])
     subprocess.call([GIT, "commit", "-m", commitMessage])
+    subprocess.call([GIT], "push")
 
 
 if __name__ == "__main__":
