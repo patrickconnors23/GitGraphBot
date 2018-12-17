@@ -1,8 +1,6 @@
 import os
 import subprocess
 
-GIT = "/usr/local/bin/git"
-
 def generateFileText():
     return "This is file text\r\n"
 
@@ -15,14 +13,17 @@ def writeToFile():
 def generateCommitMessage(text):
     return text
 
+def gitCommand(args):
+    GIT = "/usr/local/bin/git"
+    subprocess.call([GIT]+args)
+
+
 def pushChange():
     fileText = writeToFile()
     commitMessage = generateCommitMessage(fileText)
-    subprocess.call([GIT, "add", "."])
-    subprocess.call([GIT, "status"])
-    subprocess.call([GIT, "commit", "-m", commitMessage])
-    subprocess.call([GIT, "push"])
-
+    gitCommand(["add", "."])
+    gitCommand(["commit", "-m", commitMessage])
+    gitCommand(["push"]) 
 
 if __name__ == "__main__":
     pushChange()
