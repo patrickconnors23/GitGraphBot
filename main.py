@@ -1,15 +1,26 @@
 import os
 import subprocess
 
-def generateCommitMessage():
-    return "This will be default message"
+GIT = "/usr/local/bin/git"
+
+def generateFileText():
+    return "This is file text"
+
+def writeToFile():
+    text = generateFileText() 
+    with open("content.txt", "a+") as f:
+        f.write(text)
+    return text
+
+def generateCommitMessage(text):
+    return text
 
 def pushChange():
-    git = "/usr/local/bin/git"
-    commitMessage = generateCommitMessage()
-    subprocess.call([git, "add", "."])
-    subprocess.call([git, "status"])
-    subprocess.call([git, "commit", "-m", commitMessage])
+    fileText = writeToFile()
+    commitMessage = generateCommitMessage(fileText)
+    subprocess.call([GIT, "add", "."])
+    subprocess.call([GIT, "status"])
+    subprocess.call([GIT, "commit", "-m", commitMessage])
 
 
 if __name__ == "__main__":
