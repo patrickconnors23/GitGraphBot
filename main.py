@@ -5,7 +5,7 @@ def generateFileText():
     with open("words.txt", "r") as f:
         words = [line for line in f.readlines()]
     # numWords = random.randint(6, 14) 
-    text = [words[random.randint(0, len(words) -1)] for _ in range(random.randint(6, 14))]
+    text = [words[random.randint(0, len(words) -1)].strip() for _ in range(random.randint(6, 14))]
 
     return " ".join(text)+"\r\n"
 
