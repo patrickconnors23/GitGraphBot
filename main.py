@@ -4,7 +4,7 @@ import subprocess
 GIT = "/usr/local/bin/git"
 
 def generateFileText():
-    return "This is file text"
+    return "This is file text\n"
 
 def writeToFile():
     text = generateFileText() 
