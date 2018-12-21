@@ -1,13 +1,14 @@
-import os
+import os, subprocess, sys
 from crontab import CronTab
 
-filePath = os.path.dirname(os.path.abspath(__file__))
+dirPath = os.path.dirname(os.path.abspath(__file__))
 
-python3 = "/Library/Frameworks/Python.framework/Versions/3.6/bin/python3"
+python3 = subprocess.check_output(["which", "python3"]).decode('utf-8').strip()
+print(python3)
 
-cron = CronTab(user='patrickconnors')
+# cron = CronTab(user='patrickconnors')
 
-job = cron.new(command=f"cd {filePath}; {python3} main.py")  
-job.minute.every(1)
+# job = cron.new(command=f"cd {dirPath}; {python3} main.py")  
+# job.hour.every(6)
 
-cron.write()  
+# cron.write()  
