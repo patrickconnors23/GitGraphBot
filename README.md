@@ -1,6 +1,6 @@
 # GitGraphBot
 
-This repo is designed to populate a user's git graph with with simulated activity.
+Script designed to populate a user's git graph with with simulated activity.
 
 ## Setup & Usage
 
