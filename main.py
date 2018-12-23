@@ -38,8 +38,11 @@ def pushChange():
     """
     Write change and push to remote
     """
+    # Get File text
     fileText = writeToFile()
+    # Shorten text into commit message
     commitMessage = generateCommitMessage(fileText)
+    # Push to remote
     gitCommand(["add", "."])
     gitCommand(["commit", "-m", commitMessage])
     gitCommand(["push"]) 
