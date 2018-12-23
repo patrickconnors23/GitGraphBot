@@ -13,7 +13,8 @@ cron = CronTab(user='patrickconnors')
 
 # Add command
 job = cron.new(command=f"cd {dirPath}; {git} config --global -l")  
-# job = cron.new(command=f"cd {dirPath}; {python3} main.py")  
+job.minute.every(1)
+job = cron.new(command=f"cd {dirPath}; {python3} main.py")  
 job.minute.every(1)
 
 cron.write()  
