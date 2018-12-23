@@ -14,10 +14,8 @@ cron = CronTab(user='patrickconnors')
 # Add command
 # job = cron.new(command=f"cd {dirPath}; {git} config --global -l")  
 # job.minute.every(1)
-# job = cron.new(command=f"cd {dirPath}; {python3} main.py")  
-# job.minute.every(1)
-# job = cron.new(command=f"/usr/bin/security find-internet-password -gs github.com")  
-job = cron.new(command=f"echo ~")  
+job = cron.new(command=f"cd {dirPath}; {python3} main.py")  
 job.minute.every(1)
+# job = cron.new(command=f"/usr/bin/security find-internet-password -gs github.com")  
 
 cron.write()  
