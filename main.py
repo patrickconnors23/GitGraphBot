@@ -52,7 +52,7 @@ def main():
     Randomly create change to push to github
     This script should be run daily
     """
-    if random.random() < 0.75:
+    if random.random() < 1.:
         for _ in range(random.randint(1, 5)):
             pushChange()
 
